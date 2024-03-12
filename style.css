@@ -210,12 +210,22 @@ body{
     padding: 10px;
     width: 73vw;
     border-radius: 6px;
+    height: 32px;
 }
 
 .playbtnTypes{
     display: flex;
     justify-content: center;
     gap: 12px;   
+}
+
+.sheekbar{
+    height: 10px;
+    width: 98%;
+    background-color: gray;
+    position: absolute;
+    bottom: 0;
+    border-radius: 30px;
 }
 
 .songsList{
@@ -230,7 +240,7 @@ body{
     display: flex;
     justify-content: space-between;
     border: 1px solid white;
-    margin: 10px;
+    margin: 4px;
     padding: 13px;
     border-radius: 10px;
     align-items: center;

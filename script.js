@@ -16,7 +16,7 @@ async function getSongs(){
     } 
 
     return songs;
-
+ 
 }  
 
 async function main(){
@@ -27,8 +27,8 @@ async function main(){
     for (const song of songs) {
         songUl.innerHTML = songUl.innerHTML + `<li><img class="invert" src="./Image/musical-note.png" height="12" alt="">
                                             <div class="info">
-                                                <div>${song.replaceAll("(chosic.com), %20%", "")}</div>
-                                                <div>Artist name</div>
+                                                <div>${song.replaceAll("chosic.com", "")}</div>
+                                                <div>Rohan</div>
                                             </div>
                                             <div class="playnow">
                                                 <span>Play Now</span>
