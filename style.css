@@ -206,11 +206,12 @@ body{
 .playButton{
     position: fixed;
     bottom: 20px;
-    background-color: #1ed760;
+    background-color: rgb(30, 215, 96);
     padding: 10px;
-    width: 73vw;
-    border-radius: 6px;
-    height: 32px;
+    width: 72vw;
+    border-radius: 15px;
+    height: 35px;
+    margin: 0px 5px;
 }
 
 .playbtnTypes{
@@ -220,12 +221,23 @@ body{
 }
 
 .sheekbar{
-    height: 10px;
+    height: 8px;
     width: 98%;
-    background-color: gray;
+    background-color: black;
     position: absolute;
-    bottom: 0;
+    bottom: 4px;
     border-radius: 30px;
+}
+
+.circle{
+    width: 13px;
+    height: 13px;
+    background-color: white;
+    border-radius: 12px;
+    position: relative;
+    bottom: 3px;
+    left: 0;
+    transition: left 0.5s;
 }
 
 .songsList{
@@ -264,6 +276,7 @@ body{
 
 .songsList ul{
     padding: 12px 0px;
+    cursor: pointer;
 }
 
 .heading img{

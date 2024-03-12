@@ -1,5 +1,7 @@
 // console.log("we start javascript")
 
+let currentSongs = new Audio();
+
 async function getSongs(){
     let a = await fetch("http://127.0.0.1:5500/songs/");
     let response = await a.text();
@@ -17,7 +19,21 @@ async function getSongs(){
 
     return songs;
  
-}  
+} 
+
+const playMusic = (track) => {
+    currentSongs.src = `./songs/${track}`;
+    currentSongs.play();
+}
+
+
+// const playMusic = (track) => {
+//     let audio = new Audio(`./songs/${track}`);
+//     audio.addEventListener('error', (event) => {
+//         console.error('Error loading audio:', event);
+//     });
+//     audio.play();
+// }
 
 async function main(){
     let songs = await getSongs();
@@ -27,7 +43,7 @@ async function main(){
     for (const song of songs) {
         songUl.innerHTML = songUl.innerHTML + `<li><img class="invert" src="./Image/musical-note.png" height="12" alt="">
                                             <div class="info">
-                                                <div>${song.replaceAll("chosic.com", "")}</div>
+                                                <div>${song.replaceAll("%20", " ")}</div>
                                                 <div>Rohan</div>
                                             </div>
                                             <div class="playnow">
@@ -36,13 +52,14 @@ async function main(){
                                             </div>
                                             </li>`
     }
-
-    var audio = new Audio(songs[1]);   
-    // audio.play();     
-
-    audio.addEventListener("loadeddata", () => { 
-        console.log(audio.duration, audio.currentSrc, audio.currentTime)
+    Array.from(document.querySelector(".songsList").getElementsByTagName("li")).forEach(e=>{
+        e.addEventListener("click", element=> {
+            console.log(e.querySelector(".info").firstElementChild.innerHTML);
+            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+        })
+       
     })
+    
 } 
 
 main();
