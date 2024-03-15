@@ -1,5 +1,11 @@
 // console.log("we start javascript")
 
+function formatTime(timeInSeconds) {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+}
+
 let currentSongs = new Audio();
 
 async function getSongs(){
@@ -20,25 +26,25 @@ async function getSongs(){
     return songs;
  
 } 
+ 
+let isPlaying = false;
 
-const playMusic = (track) => {
+
+const playMusic = (track, pouse=false) => {
     currentSongs.src = `./songs/${track}`;
-    currentSongs.play();
+    if(!pouse){
+        currentSongs.play();
+        play.src = "./Image/pouse.png";
+    }
+    document.querySelector(".songInfo").innerHTML = track;
+    document.querySelector(".songTime").innerHTML = "00.00/00.00"
+
 }
-
-
-// const playMusic = (track) => {
-//     let audio = new Audio(`./songs/${track}`);
-//     audio.addEventListener('error', (event) => {
-//         console.error('Error loading audio:', event);
-//     });
-//     audio.play();
-// }
 
 async function main(){
     let songs = await getSongs();
     console.log(songs);
-
+    playMusic(songs[0], true);
     let songUl = document.querySelector(".songsList").getElementsByTagName("ul")[0];
     for (const song of songs) {
         songUl.innerHTML = songUl.innerHTML + `<li><img class="invert" src="./Image/musical-note.png" height="12" alt="">
@@ -57,9 +63,46 @@ async function main(){
             console.log(e.querySelector(".info").firstElementChild.innerHTML);
             playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
-       
+    })
+
+    play.addEventListener("click", () => {
+        if(currentSongs.paused){
+            currentSongs.play();
+            play.src = "./Image/pouse.png";
+        }else{
+            currentSongs.pause();
+            play.src = "/Image/play-button.png";
+        }
+    })
+
+    currentSongs.addEventListener("timeupdate", () => {
+        const currentTime = formatTime(currentSongs.currentTime);
+        const duration = formatTime(currentSongs.duration);
+        document.querySelector(".songTime").innerHTML = `${currentTime}/${duration}`;
+
+        document.querySelector(".circle").style.left = (currentSongs.currentTime / currentSongs.duration) * 100 + "%";
+    })
+
+    document.querySelector(".sheekbar").addEventListener("click", (e)=> {
+        let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100
+        document.querySelector(".circle").style.left = percent  + "%"
+        currentSongs.currentTime = (percent * (currentSongs.duration)) / 100;
+    })
+
+    currentSongs.addEventListener("ended", ()=>{
+        play.src = "./Image/play-button.png";
     })
     
+
+    document.querySelector(".hamburger").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left = "0"
+    })
+
+    document.querySelector(".lefthamburger").addEventListener("click", ()=>{
+        document.querySelector(".left").style.left = "-100%"
+    })
+    
+
 } 
 
-main();
+main(); 

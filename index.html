@@ -10,14 +10,17 @@
 </head>
 <body>
     <div class="container flex bg-black">
-        <div class="left ">
+        <div class="left">
             <div class="home bg-gray rounded margen padding">
+                <div class="invert lefthamburger">
+                    <img width="34" src="./Image/close.png" alt="" srcset="">
+                </div>
                 <div class="logo"><img class="invert" src="./Image/spotify (1).png" height="24" alt="logo">Spotify</div>
                 <ul>
                     <li><img class="invert" src="./Image/homepage.png" height="24"  alt="home">Home</li>
                     <li><img class="invert" src="./Image/magnifying-glass.png" height="24"  alt="search">Search</li>
                 </ul>
-            </div>
+            </div> 
             <div class="libraray bg-gray rounded margen padding library_position">
                 <div class="heading">
                     <div class="playlist"><img class="invert" src="./Image/music-album.png"></div>
@@ -43,6 +46,7 @@
         <div class="right bg-gray rounded ">
             <div class="header">
                 <div class="nav">
+                    <img width="34" class="invert hamburger" src="./Image/hamburger.png">
                     <div class="leftarrow invert"><img height="15" src="./Image/left-arrow.png" srcset=""></div>
                     <div class="rightarrow invert"><img height="15" src="./Image/right-arrow.png" srcset=""></div>
                 </div>
@@ -66,11 +70,16 @@
             </div>
 
             <div class="playButton">
-                <div class="playbtnTypes">
-                    <img src="./Image/previous.png" height="24" alt="">
-                    <img src="./Image/play-button.png" height="24" alt="">
-                    <img src="./Image/next.png" height="24" alt="">
+                <div class="aboveBar">
+                    <div class="songInfo"></div>
+                    <div class="playbtnTypes">
+                        <img id="previous" src="./Image/previous.png" height="24" alt="">
+                        <img id="play" src="./Image/play-button.png" height="24" alt="">
+                        <img id="next" src="./Image/next.png" height="24" alt="">
+                    </div>
+                    <div class="songTime"></div>
                 </div>
+
                 <div class="sheekbar">
                     <div class="circle">
                         

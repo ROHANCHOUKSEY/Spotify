@@ -31,10 +31,17 @@ body{
     font-weight: 700;
 }
 
+
 .left{
     width: 25vw;
     padding: 0px;
 }
+
+.lefthamburger{
+    position: absolute;
+    right: 0px;
+}
+
 
 .libraray{
     min-height: 80vh;
@@ -63,6 +70,18 @@ body{
     display: flex;
     gap: 22px;
 }
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.hamburger{
+    display: none;
+}
+
 
 .header {
     display: flex;
@@ -214,10 +233,36 @@ body{
     margin: 0px 5px;
 }
 
-.playbtnTypes{
+/* .playbtnTypes{
     display: flex;
     justify-content: center;
-    gap: 12px;   
+    gap: 12px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+} */
+
+
+.playbtnTypes{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    width: 100%; 
+}
+
+.aboveBar{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+.songInfo, .songTime{
+    color: black;
+    font-family: sans-serif;
 }
 
 .sheekbar{
@@ -227,6 +272,7 @@ body{
     position: absolute;
     bottom: 4px;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 .circle{
@@ -236,7 +282,7 @@ body{
     border-radius: 12px;
     position: relative;
     bottom: 3px;
-    left: 0;
+    left: 0%;
     transition: left 0.5s;
 }
 
@@ -290,5 +336,38 @@ body{
 .rounded{
     border-radius: 8px;
 }
+
+@media (max-width: 1400px) {
+    .left{
+        position: absolute;
+        border: 2px solid red;
+        left: -100%;
+        transition: all .3s;
+        z-index: 1;
+    }    
+
+    .right{
+        width: 100vw;
+    }
+
+    .playButton{
+        width: 98vw;
+    }
+
+    .hamburger{
+        display: block;
+    }
+    
+    .lefthamburger{
+        position: relative;
+        left: 280px;
+    }
+
+    .lefthamburger img{
+        position: fixed;
+    }
+}
+
+
 
 
