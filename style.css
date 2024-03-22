@@ -1,3 +1,7 @@
+:root{
+    --a:0;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -139,7 +143,7 @@ body{
    
 .spotifyPlaylist{
     padding: 10px;
-    font-family: sans-serif;
+    font-family: sans-serif; 
 }
 
 .spotifyPlaylist h1{
@@ -151,9 +155,9 @@ body{
     gap: 18px;
     margin: 4px;
     padding: 9px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     max-width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 70vh;
 }
 
@@ -165,9 +169,15 @@ body{
     padding: 10px;
     border-radius: 10px;
     position: relative;
+    cursor: pointer;
+
 }
 
-
+.cart:hover{
+    background-color: rgb(57, 57, 57);
+    /* transition: all 0.9s; */
+    --a: 1;
+}
 
 .cart > *{
     border-radius: 100px;
@@ -193,7 +203,7 @@ body{
 .playbutton {
     position: fixed;
     width: 40px; /* Adjust the width of the circle as needed */
-    height: 40px; /* Adjust the height of the circle as needed */
+    min-height: 40px; /* Adjust the height of the circle as needed */
     border-radius: 50%;
     background-color: #1ed760;
     display: flex;
@@ -203,8 +213,8 @@ body{
     position: absolute;
     right: 33px;
     top: 150px;
-    opacity: 1;
-    transition: all 1s ease-out;
+    opacity: var(--a);
+    transition: all 0.9s ease-out;
 }
 
 
@@ -215,7 +225,7 @@ body{
     font-family: sans-serif;
     font-weight: 700;
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
 }
 
 .footer a{
@@ -229,7 +239,7 @@ body{
     padding: 10px;
     width: 72vw;
     border-radius: 15px;
-    height: 35px;
+    min-height: 35px;
     margin: 0px 5px;
 }
 
@@ -263,6 +273,13 @@ body{
 .songInfo, .songTime{
     color: black;
     font-family: sans-serif;
+}
+
+.aboveBar .songInfo{
+    color: black;
+    font-family: sans-serif;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .sheekbar{
@@ -336,22 +353,54 @@ body{
 .rounded{
     border-radius: 8px;
 }
+ 
+.timeVol{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    position: relative;
+    left: 150px;
+}
 
-@media (max-width: 1400px) {
+.volume{
+    position: relative;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    bottom: 2px; 
+    cursor: pointer
+}
+
+.range{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.range input{
+    cursor: pointer;
+}
+
+
+input[type="range"] {
+    accent-color: black;
+  }
+
+@media (max-width: 1200px) {
     .left{
         position: absolute;
-        border: 2px solid red;
-        left: -100%;
+        /* border: 2px solid red; */
+        left: -120%;
         transition: all .3s;
         z-index: 1;
+        width: 400px;
     }    
 
     .right{
         width: 100vw;
-    }
-
-    .playButton{
-        width: 98vw;
     }
 
     .hamburger{
@@ -359,15 +408,108 @@ body{
     }
     
     .lefthamburger{
-        position: relative;
-        left: 280px;
+        left: 316px;
     }
 
     .lefthamburger img{
         position: fixed;
     }
+
+    .cortContainer{
+        justify-content: center;
+        width: 94vw;
+        margin: 0px;
+        max-height: 96vh;
+    }
+
+    .playButton{
+        position: absolute;
+        width: 92vw;
+        top: 100%;
+        height: 108px;
+    }
+
+    .aboveBar{
+        flex-direction: column;
+        gap: 28px;
+        align-items: center;
+    }
+    
+    .playbtnTypes{
+        bottom: 67px;    
+    }
+
+    .sheekbar{
+        width: 95%;
+    }
+
+    .spotifyPlaylist{
+        height: 100vh;
+    }
+
+    .cart{
+        width: 44vw;
+    }
+
+    .songInfo{
+        min-width: 351px;
+    }
+
+    .songTime{
+        position: relative;
+        top: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: 150px;
+    }
+
+    .timeVol{
+        position: relative;
+        bottom: 5px;
+    }
+    
+    .range{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .volume{
+        position: relative;
+        right: 0px;
+        bottom: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+    }
+/* 
+    .playbutton{
+        position: fixed;
+        width: 40px;
+        min-height: 40px;
+        border-radius: 50%;
+        background-color: #1ed760;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: absolute;
+        right: 33px;
+        top: 92%;
+        opacity: 1;
+        transition: all 1s ease-out;
+    } */
+    
 }
 
 
 
+
+@media (max-width: 500px){
+    .cart{
+        width: 100vw;
+    }
+}
 

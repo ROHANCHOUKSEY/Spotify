@@ -57,8 +57,16 @@
             </div>
             <div class="spotifyPlaylist">
                 <h1>spotifyPlaylist</h1>
-                <div class="cortContainer">
-                    <div class="cart">
+                <div class="cortContainer"> 
+                    <div data-folder="cs" class="cart">
+                        <div class="playbutton hoverPlayButton" >
+                            <img src="./Image/play-button-arrowhead.png" height="10" alt="" srcset="">
+                        </div>
+                        <img src="https://i.scdn.co/image/ab67616100005174fc7c542c04b5f7dc8f1b1c16" alt="" srcset="">
+                        <h1>Anirudh Ravichandra</h1>
+                        <p>Artist</p>
+                    </div>
+                    <div data-folder="ncs" class="cart">
                         <div class="playbutton hoverPlayButton" >
                             <img src="./Image/play-button-arrowhead.png" height="10" alt="" srcset="">
                         </div>
@@ -68,7 +76,7 @@
                     </div>
                 </div>
             </div>
-
+ 
             <div class="playButton">
                 <div class="aboveBar">
                     <div class="songInfo"></div>
@@ -77,7 +85,17 @@
                         <img id="play" src="./Image/play-button.png" height="24" alt="">
                         <img id="next" src="./Image/next.png" height="24" alt="">
                     </div>
-                    <div class="songTime"></div>
+                    <div class="timeVol">
+                        <div class="songTime"></div>
+
+                    </div>
+                    <div class="volume">
+                        <img src="./Image/volume.png" height="24" alt="" srcset="">
+                        <div class="range">
+                           <input  id="vol" type="range" style="color: white;">
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <div class="sheekbar">
