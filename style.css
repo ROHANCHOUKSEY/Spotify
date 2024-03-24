@@ -37,7 +37,7 @@ body{
 
 
 .left{
-    width: 25vw;
+    width: 28vw;
     padding: 0px;
 }
 
@@ -189,6 +189,7 @@ body{
 .cart img{
     width: 100%;
     object-fit: contain;
+    border-radius: 0px;
 }
 
 
@@ -201,20 +202,19 @@ body{
 }
 
 .playbutton {
-    position: fixed;
-    width: 40px; /* Adjust the width of the circle as needed */
-    min-height: 40px; /* Adjust the height of the circle as needed */
+    width: 40px;
+    min-height: 40px;
     border-radius: 50%;
-    background-color: #1ed760;
+    background-color: rgb(30, 215, 96);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     position: absolute;
-    right: 33px;
-    top: 150px;
+    right: 12px;
+    top: 144px;
     opacity: var(--a);
-    transition: all 0.9s ease-out;
+    transition: all 0.9s ease-out 0s;
 }
 
 
@@ -237,7 +237,7 @@ body{
     bottom: 20px;
     background-color: rgb(30, 215, 96);
     padding: 10px;
-    width: 72vw;
+    width: 69vw;
     border-radius: 15px;
     min-height: 35px;
     margin: 0px 5px;
@@ -319,11 +319,12 @@ body{
     padding: 13px;
     border-radius: 10px;
     align-items: center;
+    height: 20px;
 }
 
 .info{
     font-size: 10px;
-    width: 138px;
+    width: 150px;
 }
 
 .playnow{
@@ -360,7 +361,7 @@ body{
     align-items: center;
     gap: 120px;
     position: relative;
-    left: 150px;
+    left: 80px;
 }
 
 .volume{
@@ -382,6 +383,14 @@ body{
 
 .range input{
     cursor: pointer;
+}
+
+
+.playbutton img{
+    height: 36px;
+    position: relative;
+    left: 2px;
+    width: 21px;
 }
 
 
@@ -452,7 +461,7 @@ input[type="range"] {
     }
 
     .songInfo{
-        min-width: 351px;
+        min-width: 194px;
     }
 
     .songTime{
@@ -461,7 +470,7 @@ input[type="range"] {
         display: flex;
         justify-content: center;
         align-items: center;
-        right: 150px;
+        right: 79px;
     }
 
     .timeVol{
@@ -484,23 +493,38 @@ input[type="range"] {
         align-items: center;
         gap: 7px;
     }
-/* 
+
     .playbutton{
-        position: fixed;
-        width: 40px;
-        min-height: 40px;
+        width: 80px;
+        min-height: 80px;
         border-radius: 50%;
-        background-color: #1ed760;
+        background-color: rgb(30, 215, 96);
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         position: absolute;
-        right: 33px;
-        top: 92%;
-        opacity: 1;
-        transition: all 1s ease-out;
-    } */
+        right: 27px;
+        top: 254px;
+        opacity: var(--a);
+        transition: all 0.9s ease-out 0s;
+    }
+
+    .cart{
+        cursor: pointer;
+    }
+
+    .cart:hover{
+        background-color: rgb(57, 57, 57);
+        /* transition: all 0.9s; */
+        --a: 1;
+    }
+
+    .playbutton img{
+        height: 36px;
+        position: relative;
+        left: 2px;
+    }
     
 }
 

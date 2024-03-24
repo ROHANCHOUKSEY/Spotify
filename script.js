@@ -36,7 +36,7 @@ async function getSongs(folder){
         songUl.innerHTML = songUl.innerHTML + `<li><img class="invert" src="./Image/musical-note.png" height="12" alt="">
                                             <div class="info">
                                                 <div>${song.replaceAll("%20", " ")}</div>
-                                                <div>Rohan</div>
+                                                
                                             </div>
                                             <div class="playnow">
                                                 <span>Play Now</span>
@@ -96,7 +96,7 @@ async function displayAlbums() {
                     cortContainer.innerHTML += `
                         <div data-folder="${folder}" class="cart">
                             <div class="playbutton hoverPlayButton">
-                                <img src="./Image/play-button-arrowhead.png" height="10" alt="" srcset="">
+                                <img src="./Image/play-button-arrowhead.png"  alt="" srcset="">
                             </div>
                             <img src="/songs/${folder}/cover.jpeg" alt="" srcset="">  
                             <h1>${infoData.title}</h1>
@@ -111,14 +111,16 @@ async function displayAlbums() {
         // Event listener for album click
         Array.from(document.getElementsByClassName('cart')).forEach(cart => {
             cart.addEventListener('click', async item => {
-                songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+                await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+                if (songs.length > 0) {
+                    playMusic(songs[0], true);
+                }
             });
         });
     } catch (error) {
         console.error('Error in displayAlbums:', error);
     }
 }
-
 
 
  
@@ -175,7 +177,7 @@ async function main(){
         
     })
     
-    next.addEventListener("click", () => { 
+    next.addEventListener("click", () => {
         let index  = songs.indexOf(currentSongs.src.split("/").slice(-1)[0]);
         if((index+1) < songs.length){
             playMusic(songs[index+1]);
